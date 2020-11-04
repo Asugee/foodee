@@ -1,0 +1,93 @@
+####
+# SIGNUP
+PUT http://localhost:8080/auth/signup
+Content-Type: application/json
+
+{
+    "email": "gai@test.com",
+    "username": "Asugee",
+    "password": "password"
+}
+
+####
+# LOGIN
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+    "email": "gai@test.com",
+    "password": "password"
+}
+
+####
+# CREATE RESTAURANT
+PUT http://localhost:8080/foodee/restaurants
+Content-Type: application/json
+
+{
+    "restaurantName": "Bombay Palace",
+    "tags": ["Indian Cuisine", "Budget", "Breakfast"],
+    "location": "https://goo.gl/maps/XspxV1wQv6X2obD68"
+}
+
+####
+# RECOMMEND RESTAURANTS
+GET http://localhost:8080/foodee/restaurants
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjllMTk3YzI3NGM5MjQ0ZjgxYjg3NGYiLCJpYXQiOjE2MDQyMTgwMTYsImV4cCI6MTYwNDIyMTYxNn0.W5nTJeOTVnAfTDsq3yVp-igad9b_I18o5WieBqTmuJI
+
+{
+    "tagFilters": [],
+    "searchMode": ""
+}
+
+####
+# RESTAURANT DETAILS
+GET http://localhost:8080/foodee/restaurants/5f9e72cf6b009f2608ac7d9f/details
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjllMTk3YzI3NGM5MjQ0ZjgxYjg3NGYiLCJpYXQiOjE2MDQyMjY5OTQsImV4cCI6MTYwNDIzMDU5NH0.F6I5ZOBo9EaIWCMK8A4Z5e4az0NGE9FxKW2KeM5iVKY
+
+####
+# REVIEW RESTAURANT
+POST http://localhost:8080/foodee/restaurants/5f9e72cf6b009f2608ac7d9f/reviews
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjllMTk3YzI3NGM5MjQ0ZjgxYjg3NGYiLCJpYXQiOjE2MDQyNDAxMTksImV4cCI6MTYwNDI0MzcxOX0.M8IEBJ5RBscLLx5EFXMRmWmi9eNEBMls-sdwt7CqtdU
+
+{
+    "rating": 4,
+    "comment": "Nice"
+}
+
+####
+# RESTAURANT REVIEWS
+GET http://localhost:8080/foodee/restaurants/5f9e72cf6b009f2608ac7d9f/reviews?page=1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjllMTk3YzI3NGM5MjQ0ZjgxYjg3NGYiLCJpYXQiOjE2MDQyNDAxMTksImV4cCI6MTYwNDI0MzcxOX0.M8IEBJ5RBscLLx5EFXMRmWmi9eNEBMls-sdwt7CqtdU
+
+####
+# FAVOURITE RESTAURANT
+POST http://localhost:8080/foodee/restaurants/5f9e72cf6b009f2608ac7d9f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjllMTk3YzI3NGM5MjQ0ZjgxYjg3NGYiLCJpYXQiOjE2MDQyMzQwNTUsImV4cCI6MTYwNDIzNzY1NX0.OzNWfEyG8pVBzkHL9hWY7thavFF1i7PkhZh3KIumtKs
+
+####
+# USER LIST
+GET http://localhost:8080/foodee/users?page=1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjllMTk3YzI3NGM5MjQ0ZjgxYjg3NGYiLCJpYXQiOjE2MDQyMzE5NTEsImV4cCI6MTYwNDIzNTU1MX0.sXd_I6gQHpgtgGlNBs2l4OV5vOJoNBJsj3VRwSJYSz0
+
+####
+# USER DETAILS
+GET http://localhost:8080/foodee/users/5f9e197c274c9244f81b874f/details
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjllMTk3YzI3NGM5MjQ0ZjgxYjg3NGYiLCJpYXQiOjE2MDQyMzE5NTEsImV4cCI6MTYwNDIzNTU1MX0.sXd_I6gQHpgtgGlNBs2l4OV5vOJoNBJsj3VRwSJYSz0
+
+####
+# USER OVERVIEW
+GET http://localhost:8080/foodee/users/5f9e197c274c9244f81b874f/overview
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjllMTk3YzI3NGM5MjQ0ZjgxYjg3NGYiLCJpYXQiOjE2MDQyMzQwNTUsImV4cCI6MTYwNDIzNzY1NX0.OzNWfEyG8pVBzkHL9hWY7thavFF1i7PkhZh3KIumtKs
+
+####
+# USER FAVOURITES
+GET http://localhost:8080/foodee/users/5f9e197c274c9244f81b874f/favourites
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjllMTk3YzI3NGM5MjQ0ZjgxYjg3NGYiLCJpYXQiOjE2MDQyMzQwNTUsImV4cCI6MTYwNDIzNzY1NX0.OzNWfEyG8pVBzkHL9hWY7thavFF1i7PkhZh3KIumtKs
+
+####
+# USER REVIEWS
+GET http://localhost:8080/foodee/users/5f9e197c274c9244f81b874f/reviews
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjllMTk3YzI3NGM5MjQ0ZjgxYjg3NGYiLCJpYXQiOjE2MDQyNDAxMTksImV4cCI6MTYwNDI0MzcxOX0.M8IEBJ5RBscLLx5EFXMRmWmi9eNEBMls-sdwt7CqtdU
